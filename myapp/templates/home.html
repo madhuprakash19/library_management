@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Library management System</h1>
+    <a href="{% url 'library:addbook' %}">ADD BOOK</a>
+    <br><br><hr>
+    {% for book in books %}
+     {{book.name}} <br>
+     {{book.author}} <br>
+     {{book.genre}} <br>
+     {{book.id}}
+     <a href="{% url 'library:edit_book' book_id=book.id %}">Edit Book</a>
+     <a href="{% url 'library:delete_book' book_id=book.id %}">Delete</a>
+     <br><hr>
+    {% endfor %}
+</body>
+</html>
